@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="/lib/turf.min.js"></script>
+  <title>Water Pipeline Visualization</title>
+  <link rel="stylesheet" href="/map.css">
+</head>
+
+<body>
+  <div id="map"></div>
+  <div class="steam_btn">
+    <button id="mdstream" value="upstream">Upstream</button>
+  </div>
+
+  <script src="/lib/networkControl.js"></script>
+  <script src="/lib/networkControlWorker.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="/map.js"></script>
+
+</body>
+
+</html>
