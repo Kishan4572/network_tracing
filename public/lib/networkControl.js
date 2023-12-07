@@ -26,7 +26,8 @@ class NetworkControl {
     };
 
     this._workerLayer = L.featureGroup().addTo(this._map)
-
+    this._clickedLayer = L.featureGroup().addTo(this._map)
+    
     this.toggleTrace = this.toggleTrace.bind(this);
     this.trace = this.trace.bind(this);
 
@@ -50,6 +51,7 @@ class NetworkControl {
   mapClick() {
     if (this._workerLayer.getLayers().length > 0) {
       this._workerLayer.clearLayers();
+      this._clickedLayer.clearLayers();
     }
   }
 
@@ -80,12 +82,12 @@ class NetworkControl {
 
   trace(e) {
     this._workerLayer.clearLayers()
-
+    this._clickedLayer.clearLayers();
     const point = e.layer.feature
     point.name = this._traceDirection
    
     // Assuming you have a reference to your GeoJSON layer
-    this._workerLayer.addLayer(L.geoJSON(point, {
+    this._clickedLayer.addLayer(L.geoJSON(point, {
       pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, {
           fillOpacity: 0.8,
